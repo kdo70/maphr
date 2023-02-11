@@ -60,21 +60,5 @@ services:
             - "6379:6379"
         networks:
             - application
-    sentry:
-        container_name: sentry
-        image: sentry:latest
-        volumes:
-            - ./docker/volumes/sentry/files:/var/lib/sentry/files
-            - ./docker/volumes/sentry/tmp:/tmp
-        ports:
-            - "9000:9000"
-        networks:
-            - application
-        environment:
-            SENTRY_SECRET_KEY: ${APP_KEY}
-            SENTRY_POSTGRES_HOST: ${DB_HOST}
-            SENTRY_DB_USER: ${DB_USERNAME}
-            SENTRY_DB_PASSWORD: ${DB_PASSWORD}
-            SENTRY_REDIS_HOST: ${REDIS_HOST}
 networks:
     application:
