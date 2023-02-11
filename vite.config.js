@@ -4,10 +4,10 @@ import vue from '@vitejs/plugin-vue';
 
 export default defineConfig({
     server: {
-        https: true,
-        host: 'maphr.ru',
+        host: 'test.local',
+        port: '5173',
         hmr: {
-            host: 'maphr.ru'
+            host: 'test.local'
         },
     },
     plugins: [
