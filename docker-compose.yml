@@ -26,7 +26,7 @@ services:
             - adminer
             - redis
         ports:
-            - "5173:5173"
+            - "49467:49467"
         networks:
             - application
         container_name: app
