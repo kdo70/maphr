@@ -62,9 +62,9 @@ services:
             - application
     sentry:
         container_name: sentry
-        image: sentry
+        image: sentry:latest
         ports:
-            - 9000:9000
+            - "9000:9000"
         networks:
             - application
         environment:

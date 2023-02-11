@@ -14,5 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    throw new \Exception("Sentry Test Exception");
     return view('welcome');
 });
