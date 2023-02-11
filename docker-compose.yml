@@ -21,6 +21,10 @@ services:
             - ./docker/php/php.ini:/usr/local/etc/php/conf.d/php.ini
             - ./docker/git/auth.json:/root/.composer/auth.json
             - ./docker/php/supervisor/supervisord.conf:/etc/supervisor/supervisord.conf
+        depends_on:
+            - postgres
+            - adminer
+            - redis
         networks:
             - application
         container_name: app

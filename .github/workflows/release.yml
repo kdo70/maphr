@@ -14,23 +14,6 @@ jobs:
       - run: mkdir "$HOME/.ssh"
       - run: echo "${{ secrets.SSH_PRIVATE_KEY }}" > "$HOME/.ssh/SSH_PRIVATE_KEY"
       - run: chmod 0600 "$HOME/.ssh/SSH_PRIVATE_KEY"
-      - name: Build .env
-        run: |
-          touch .env
-          echo APP_ENV=${GITHUB_REF#refs/heads/} >> .env
-          echo APP_KEY= >> .env
-          echo APP_NAME=${{ secrets.APP_NAME }} >> .env
-          echo APP_URL=${{ secrets.APP_URL }} >> .env
-          echo DB_CONNECTION=${{ secrets.DB_CONNECTION }} >> .env
-          echo DB_HOST=${{ secrets.DB_HOST }} >> .env
-          echo DB_PORT=${{ secrets.DB_PORT }} >> .env
-          echo DB_DATABASE=${{ secrets.DB_DATABASE }} >> .env
-          echo DB_USERNAME=${{ secrets.DB_USERNAME }} >> .env
-          echo DB_PASSWORD=${{ secrets.DB_PASSWORD }} >> .env
-          echo QUEUE_CONNECTION=${{ secrets.QUEUE_CONNECTION }} >> .env
-          echo REDIS_HOST=${{ secrets.REDIS_HOST }} >> .env
-          echo REDIS_PASSWORD=${{ secrets.REDIS_PASSWORD }} >> .env
-          echo REDIS_PORT=${{ secrets.REDIS_PORT }} >> .env
       - name: Rsync deploy
         run: rsync --exclude-from=rsync_exclude.txt --del -e "ssh -p ${{ secrets.SERVER_PORT }} -i $HOME/.ssh/SSH_PRIVATE_KEY -o StrictHostKeyChecking=no" --archive --compress --delete . ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_HOST }}:${{ secrets.SERVER_DEPLOY_PATH }}
       - name: docker-compose
@@ -40,12 +23,6 @@ jobs:
           host: ${{ secrets.SERVER_HOST }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SERVER_PORT }}
-          script: "cd ${{ secrets.SERVER_DEPLOY_PATH }} && docker-compose up -d --build"
-      - name: composer install
-        uses: appleboy/ssh-action@master
-        with:
-          username: ${{ secrets.SERVER_USERNAME }}
-          host: ${{ secrets.SERVER_HOST }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          port: ${{ secrets.SERVER_PORT }}
-          script: "docker exec app composer install"
+          script: "cd ${{ secrets.SERVER_DEPLOY_PATH }} 
+          && docker exec -it app php artisan migrate
+          && docker restart app"
