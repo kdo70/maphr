@@ -1,0 +1,12 @@
+- phpunit.xml
+- package.json
+- package-lock.json
+- README.md
+- .styleci.yml
+- .gitignore
+- .gitattributes
+- .env.example
+- .editorconfig
+- .github
+- .git
+- storage/*
