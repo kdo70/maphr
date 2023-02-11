@@ -11,3 +11,5 @@
 - storage/framework/views/*
 - storage/logs/*
 - storage/app/*
+- node_modules/*
+- vendor/*
