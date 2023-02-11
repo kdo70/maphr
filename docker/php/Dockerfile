@@ -3,6 +3,8 @@ FROM php:8.2-fpm
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
 
 RUN apt-get update && apt-get install -y \
+    htop \
+    nano \
     systemctl \
     curl \
     git \
@@ -43,5 +45,7 @@ RUN mkdir -p /usr/src/php/ext/redis \
     && echo 'redis' >> /usr/src/php-available-exts \
     && docker-php-ext-install redis
 
+RUN curl -sL https://deb.nodesource.com/setup_16.x | bash \
+    && apt -y install nodejs
 
 CMD ["/usr/bin/supervisord"]
