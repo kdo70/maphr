@@ -33,16 +33,19 @@ jobs:
           echo REDIS_PORT=${{ secrets.REDIS_PORT }} >> .env
       - name: Rsync deploy
         run: rsync --exclude-from=rsync_exclude.txt --del -e "ssh -p ${{ secrets.SERVER_PORT }} -i $HOME/.ssh/SSH_PRIVATE_KEY -o StrictHostKeyChecking=no" --archive --compress --delete . ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_HOST }}:${{ secrets.SERVER_DEPLOY_PATH }}
-      - name: docker-compose up -d --build
+      - name: docker-compose
         uses: appleboy/ssh-action@master
         with:
           username: ${{ secrets.SERVER_USERNAME }}
           host: ${{ secrets.SERVER_HOST }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SERVER_PORT }}
-          script: "cd ${{ secrets.SERVER_DEPLOY_PATH }}
-          && docker-compose up -d --build
-          && docker exec -it app composer install
-          && sudo chmod 777 -R storage && sudo chmod 777 -R bootstrap/cache
-          && docker exec -it app php artisan migrate
-          && docker restart app"
+          script: "cd ${{ secrets.SERVER_DEPLOY_PATH }} && docker-compose up -d --build"
+      - name: composer install
+        uses: appleboy/ssh-action@master
+        with:
+          username: ${{ secrets.SERVER_USERNAME }}
+          host: ${{ secrets.SERVER_HOST }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.SERVER_PORT }}
+          script: "docker exec -it app composer install"
