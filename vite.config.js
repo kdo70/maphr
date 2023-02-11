@@ -6,7 +6,7 @@ export default defineConfig({
     server: {
         port: '49467',
         hmr: {
-            host: 'maphr.ru'
+            host: 'localhost'
         },
     },
     plugins: [
