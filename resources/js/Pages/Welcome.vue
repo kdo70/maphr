@@ -11,7 +11,10 @@ defineProps({
 
 <template>
     <Head title="Welcome" />
-
+    <a href="#">
+        <svg><!-- ... --></svg>
+        <span class="sr-only">Settings</span>
+    </a>
     <Link :href="route('test')" class="text-black-50 text-gray-800 dark:text-gray-500 underline">go to test page</Link>
 
     <div
