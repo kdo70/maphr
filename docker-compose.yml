@@ -1,0 +1,59 @@
+version: '3'
+services:
+    nginx:
+        image: nginx:1.17.8-alpine
+        ports:
+            - "80:80"
+        volumes:
+            - ./:/var/www/html
+            - ./storage/logs/nginx:/var/log/nginx/
+            - ./docker/nginx/conf.d/:/etc/nginx/conf.d/
+        depends_on:
+            - app
+        networks:
+            - application
+        container_name: nginx
+    app:
+        build: ./docker/php
+        volumes:
+            - ./:/var/www/html
+            - ./storage/logs/php.log:/var/log/fpm-php.www.log
+            - ./docker/php/php.ini:/usr/local/etc/php/conf.d/php.ini
+            - ./docker/git/auth.json:/root/.composer/auth.json
+            - ./docker/php/supervisor/supervisord.conf:/etc/supervisor/supervisord.conf
+        networks:
+            - application
+        container_name: app
+    postgres:
+        container_name: postgres
+        image: postgres:alpine
+        volumes:
+            - ./docker/volumes/postgres/data:/var/lib/postgresql/data
+            - ./docker/volumes/postgres/dump:/dump
+        ports:
+            - "5432:5432"
+        environment:
+            POSTGRES_DB: ${DB_DATABASE}
+            POSTGRES_USER: ${DB_USERNAME}
+            POSTGRES_PASSWORD: ${DB_PASSWORD}
+        networks:
+            - application
+    adminer:
+        image: adminer
+        restart: always
+        ports:
+            - "8080:8080"
+        networks:
+            - application
+    redis:
+        container_name: redis
+        image: redis:alpine
+        restart: unless-stopped
+        volumes:
+            - ./docker/volumes/redis/data:/data
+        ports:
+            - "6379:6379"
+        networks:
+            - application
+networks:
+    application:
