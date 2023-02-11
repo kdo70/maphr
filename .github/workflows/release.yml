@@ -16,3 +16,11 @@ jobs:
       - run: chmod 0600 "$HOME/.ssh/SSH_PRIVATE_KEY"
       - name: Rsync deploy
         run: rsync --exclude-from=rsync_exclude.txt --del -e "ssh -p ${{ secrets.SERVER_PORT }} -i $HOME/.ssh/SSH_PRIVATE_KEY -o StrictHostKeyChecking=no" --archive --compress --delete . ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_HOST }}:${{ secrets.SERVER_DEPLOY_PATH }}
+      - name: docker-compose up -d --build
+        uses: appleboy/ssh-action@master
+        with:
+          username: ${{ secrets.MAIN_USERNAME }}
+          host: ${{ secrets.MAIN_HOST }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.MAIN_PORT }}
+          script: "cd ${{ secrets.SERVER_DEPLOY_PATH }} docker-compose up -d --build"
