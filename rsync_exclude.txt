@@ -11,4 +11,8 @@
 - .git
 - .env
 - docker/volumes
-- vendor
+- storage/framework/cache/*
+- storage/framework/session/*
+- storage/framework/views/*
+- storage/logs/*
+- storage/app/*
