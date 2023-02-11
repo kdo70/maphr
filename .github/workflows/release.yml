@@ -25,6 +25,6 @@ jobs:
           port: ${{ secrets.SERVER_PORT }}
           script: "cd ${{ secrets.SERVER_DEPLOY_PATH }}
           && sudo docker-compose up -d --build
-          && sudo chmod 755 -R storage && sudo chmod 755 -R bootstrap/cache
+          && sudo chmod 777 -R storage && sudo chmod 777 -R bootstrap/cache
           && docker exec app composer install
           && docker exec app php artisan migrate"
