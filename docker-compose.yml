@@ -63,6 +63,9 @@ services:
     sentry:
         container_name: sentry
         image: sentry:latest
+        volumes:
+            - ./docker/volumes/sentry/files:/var/lib/sentry/files
+            - ./docker/volumes/sentry/tmp:/tmp
         ports:
             - "9000:9000"
         networks:
