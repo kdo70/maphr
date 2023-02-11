@@ -10,7 +10,7 @@ class SecureMiddleware
 {
     public function handle(Request $request, Closure $next)
     {
-        if (request()->secure()) {
+        if (request()->getScheme() == 'https') {
             URL::forceScheme('https');
         }
         return $next($request);
