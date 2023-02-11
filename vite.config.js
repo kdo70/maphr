@@ -7,7 +7,7 @@ export default defineConfig({
         https: true,
         host: '0.0.0.0',
         hmr: {
-            host: 'localhost'
+            host: 'maphr.ru'
         },
     },
     plugins: [
