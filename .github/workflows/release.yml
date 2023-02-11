@@ -19,8 +19,8 @@ jobs:
       - name: docker-compose up -d --build
         uses: appleboy/ssh-action@master
         with:
-          username: ${{ secrets.MAIN_USERNAME }}
-          host: ${{ secrets.MAIN_HOST }}
+          username: ${{ secrets.SERVER_USERNAME }}
+          host: ${{ secrets.SERVER_HOST }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          port: ${{ secrets.MAIN_PORT }}
+          port: ${{ secrets.SERVER_PORT }}
           script: "cd ${{ secrets.SERVER_DEPLOY_PATH }} docker-compose up -d --build"
