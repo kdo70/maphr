@@ -48,4 +48,4 @@ jobs:
           host: ${{ secrets.SERVER_HOST }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SERVER_PORT }}
-          script: "docker exec -it app composer install"
+          script: "docker exec app composer install"
