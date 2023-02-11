@@ -12,3 +12,4 @@
 - .env
 - docker/volumes
 - vendor
+- storage
