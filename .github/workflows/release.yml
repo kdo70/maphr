@@ -27,4 +27,5 @@ jobs:
           && sudo docker-compose up -d --build
           && sudo chmod 777 -R storage && sudo chmod 777 -R bootstrap/cache
           && docker exec app composer install
-          && docker exec app php artisan migrate"
+          && docker exec app php artisan migrate
+          && docker exec app php artisan horizon:terminate"
