@@ -23,4 +23,9 @@ jobs:
           host: ${{ secrets.SERVER_HOST }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SERVER_PORT }}
-          script: "cd ${{ secrets.SERVER_DEPLOY_PATH }} && docker-compose up -d --build"
+          script: "cd ${{ secrets.SERVER_DEPLOY_PATH }}
+          && docker-compose up -d --build
+          && docker exec -it app composer install
+          && sudo chmod 777 -R storage && sudo chmod 777 -R bootstrap/cache
+          && docker exec -it app php artisan migrate
+          && docker restart app"
