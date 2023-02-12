@@ -1,5 +1,5 @@
 {
-	"authHost": "https://maphr.ru",
+	"authHost": "localhost",
 	"authEndpoint": "/broadcasting/auth",
 	"clients": [],
 	"database": "redis",
@@ -9,10 +9,10 @@
 			"databasePath": "/database/laravel-echo-server.sqlite"
 		}
 	},
-	"devMode": false,
+	"devMode": true,
 	"host": "redis",
 	"port": "49465",
-	"protocol": "https",
+	"protocol": "http",
 	"socketio": {},
 	"secureOptions": 67108864,
 	"sslCertPath": "",
