@@ -54,3 +54,5 @@ docker restart app
 - Adminer: http://localhost:8080
 
 </details>
+
+npm run dev -- --host
