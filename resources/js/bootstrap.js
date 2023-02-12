@@ -27,7 +27,7 @@ window.Echo = new Echo({
     broadcaster: 'pusher',
     key: "local",
     wsHost: window.location.hostname,
-    wsPort: 49465,
+    wsPort: 6001,
     cluster: "mt1",
     forceTLS: false,
 });
