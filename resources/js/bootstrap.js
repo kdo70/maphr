@@ -26,7 +26,7 @@ window.io = Pusher;
 window.Echo = new Echo({
     broadcaster: 'pusher',
     key: "local",
-    wsHost:"localhost",
+    wsHost:"maphr.ru",
     wsPort: 6001,
     cluster: "mt1",
     forceTLS: false,
