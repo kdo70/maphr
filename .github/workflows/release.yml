@@ -14,6 +14,8 @@ jobs:
       - run: mkdir "$HOME/.ssh"
       - run: echo "${{ secrets.SSH_PRIVATE_KEY }}" > "$HOME/.ssh/SSH_PRIVATE_KEY"
       - run: chmod 0600 "$HOME/.ssh/SSH_PRIVATE_KEY"
+      - name: Build composer
+        run: composer install
       - name: Build
         run: npm run build
       - name: Rsync deploy
@@ -28,6 +30,5 @@ jobs:
           script: "cd ${{ secrets.SERVER_DEPLOY_PATH }}
           && sudo docker-compose up -d --build
           && sudo chmod 777 -R storage && sudo chmod 777 -R bootstrap/cache
-          && docker exec app composer install
           && docker exec app php artisan migrate
           && docker exec app php artisan horizon:terminate"
