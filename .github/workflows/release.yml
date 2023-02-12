@@ -15,7 +15,7 @@ jobs:
       - run: echo "${{ secrets.SSH_PRIVATE_KEY }}" > "$HOME/.ssh/SSH_PRIVATE_KEY"
       - run: chmod 0600 "$HOME/.ssh/SSH_PRIVATE_KEY"
       - name: Build composer
-        run: composer install --dev
+        run: composer install
       - name: Build
         run: npm i && npm run build
       - name: Rsync deploy
