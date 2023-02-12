@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import Echo from "laravel-echo"
 import Web3 from 'pusher-js';
+
 window._ = _;
 
 /**
@@ -10,6 +11,7 @@ window._ = _;
  */
 
 import axios from 'axios';
+
 window.axios = axios;
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
@@ -29,7 +31,7 @@ window.Echo = new Echo({
     wsHost: window.location.hostname,
     wssHost: window.location.hostname,
     wsPort: 49465,
-    wssPort:49465,
+    wssPort: 443,
     cluster: "mt1",
     forceTLS: true,
     disableStats: true,
