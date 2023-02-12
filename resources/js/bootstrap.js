@@ -33,7 +33,7 @@ window.Echo = new Echo({
     wsPort: 49465,
     wssPort: 443,
     cluster: "mt1",
-    forceTLS: true,
+    forceTLS: false,
     disableStats: true,
-    enabledTransports: ['ws', 'wss']
+    enabledTransports: ['ws']
 });
