@@ -1,7 +1,6 @@
 import _ from 'lodash';
 import Echo from "laravel-echo"
-import axios from 'axios';
-
+import Web3 from 'pusher-js';
 window._ = _;
 
 /**
@@ -10,6 +9,7 @@ window._ = _;
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
+import axios from 'axios';
 window.axios = axios;
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
