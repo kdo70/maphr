@@ -14,6 +14,8 @@ jobs:
       - run: mkdir "$HOME/.ssh"
       - run: echo "${{ secrets.SSH_PRIVATE_KEY }}" > "$HOME/.ssh/SSH_PRIVATE_KEY"
       - run: chmod 0600 "$HOME/.ssh/SSH_PRIVATE_KEY"
+      - name: Build
+        run: npm run build
       - name: Rsync deploy
         run: rsync --exclude-from=rsync_exclude.txt --del -e "ssh -p ${{ secrets.SERVER_PORT }} -i $HOME/.ssh/SSH_PRIVATE_KEY -o StrictHostKeyChecking=no" --archive --compress --delete . ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_HOST }}:${{ secrets.SERVER_DEPLOY_PATH }}
       - name: docker-compose
