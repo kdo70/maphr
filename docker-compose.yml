@@ -27,7 +27,7 @@ services:
             - redis
         ports:
             - "5173:5173"
-            - "6001:6001"
+            - "49465:6001"
         networks:
             - application
         container_name: app
