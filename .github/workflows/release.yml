@@ -17,7 +17,7 @@ jobs:
       - name: Build composer
         run: composer install
       - name: Build
-        run: npm run build
+        run: npm i && npm run build
       - name: Rsync deploy
         run: rsync --exclude-from=rsync_exclude.txt --del -e "ssh -p ${{ secrets.SERVER_PORT }} -i $HOME/.ssh/SSH_PRIVATE_KEY -o StrictHostKeyChecking=no" --archive --compress --delete . ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_HOST }}:${{ secrets.SERVER_DEPLOY_PATH }}
       - name: docker-compose
