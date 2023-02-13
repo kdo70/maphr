@@ -32,9 +32,8 @@ class hello implements ShouldQueue
      */
     public function handle()
     {
-        Log::alert('sdfdsf');
-        sleep(15);
-        broadcast(new Hello());
+        sleep(1);
+        broadcast(new \App\Events\Hello());
     }
 
 
