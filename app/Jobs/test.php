@@ -12,7 +12,7 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Bus;
 use Illuminate\Support\Facades\Log;
 
-class hello implements ShouldQueue
+class test implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels, Batchable;
 
@@ -33,11 +33,7 @@ class hello implements ShouldQueue
      */
     public function handle()
     {
-        $collect = collect([]);
-        for ($i=0; $i < 10000; $i++){
-            $collect->add(new test());
-        }
-        Bus::batch($collect)->dispatch();
+        broadcast(new \App\Events\Hello());
     }
 
 

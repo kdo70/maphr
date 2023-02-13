@@ -24,11 +24,7 @@ Route::get('/broadcast',function(){
 });
 
 Route::get('/', function () {
-    $collect = collect([]);
-    for ($i=0; $i < 10000; $i++){
-        $collect->add(new \App\Jobs\hello());
-    }
-    Bus::batch($collect)->dispatch();
+    \App\Jobs\hello::dispatch();
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
