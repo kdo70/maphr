@@ -28,8 +28,10 @@ window.io = Pusher;
 window.Echo = new Echo({
     broadcaster: 'pusher',
     key: "local",
-    wsHost:"localhost",
-    wsPort: 49465,
+    wsHost:"maphr.ru",
+    wssHost:"maphr.ru",
+    wsPort:"49465",
+    wssPort:"49465",
     cluster: "mt1",
     forceTLS: false,
 });

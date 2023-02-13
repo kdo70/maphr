@@ -11,7 +11,7 @@
 	},
 	"devMode": true,
 	"host": "redis",
-	"port": "49465",
+	"port": "6001",
 	"protocol": "http",
 	"socketio": {},
 	"secureOptions": 67108864,
