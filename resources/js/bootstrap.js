@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import Echo from "laravel-echo"
-import Web3 from 'pusher-js';
+import axios from 'axios';
+import Pusher from 'pusher-js';
 
 window._ = _;
 
@@ -9,8 +10,6 @@ window._ = _;
  * to our Laravel back-end. This library automatically handles sending the
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
-
-import axios from 'axios';
 
 window.axios = axios;
 
@@ -28,8 +27,8 @@ window.io = Pusher;
 window.Echo = new Echo({
     broadcaster: 'pusher',
     key: "local",
-    wsHost:"localhost",
-    wsPort:"49465",
+    wsHost: window.location.hostname,
+    wsPort: "49465",
     cluster: "mt1",
     forceTLS: false,
 });

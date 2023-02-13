@@ -3,6 +3,7 @@
 use App\Events\Hello;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
+use Illuminate\Support\Facades\Bus;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -23,6 +24,11 @@ Route::get('/broadcast',function(){
 });
 
 Route::get('/', function () {
+    $collect = collect([]);
+    for ($i=0; $i < 100; $i++){
+        $collect->add(new \App\Jobs\hello());
+    }
+    Bus::batch($collect)->dispatch();
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),

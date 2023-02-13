@@ -27,4 +27,5 @@ class Hello implements ShouldBroadcastNow
     {
         return new Channel('public');
     }
+
 }
