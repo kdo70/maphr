@@ -274,14 +274,14 @@ defineProps({
                 </div>
 
             </div>
-            <div class="px-5 pt-6 pb-5 text-center border border-gray-300 rounded lg:w-2/5">
+            <div class="px-5 pt-6 pb-5 text-center rounded lg:w-2/5">
                 <div class="pb-5">
                     <div class="flex justify-between mb-1">
                         <span class="text-base font-medium text-gray-900 dark:text-white">Bartz x10</span>
                         <span class="text-sm font-medium text-gray-900 dark:text-white">235</span>
                     </div>
                     <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-                        <div class="bg-gray-900 h-2.5 rounded-full" style="width: 78%"></div>
+                        <div class="bg-deep-purple-accent-400 h-2.5 rounded-full" style="width: 78%"></div>
                     </div>
                 </div>
                 <div class="pb-5">
