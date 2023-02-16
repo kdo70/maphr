@@ -24,7 +24,6 @@ Route::get('/broadcast',function(){
 });
 
 Route::get('/', function () {
-    \App\Jobs\hello::dispatch();
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),

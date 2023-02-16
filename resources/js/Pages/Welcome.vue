@@ -14,84 +14,60 @@ defineProps({
     <Head title="Main Page"/>
 
     <Layout>
-
-        <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-            <div class="grid gap-10 row-gap-8 lg:grid-cols-5">
-                <div class="lg:col-span-2">
-                    <p class="mb-2 text-xs font-semibold tracking-wide text-gray-600 uppercase">
-                        20 Nov 2020
-                    </p>
-                    <div class="mb-3">
-                        <a href="/" aria-label="Article" class="inline-block text-black transition-colors duration-200 hover:text-deep-purple-accent-400">
-                            <p class="font-sans text-xl font-extrabold leading-none tracking-tight lg:text-4xl xl:text-5xl">
-                                home
-                            </p>
-                        </a>
-                    </div>
-                    <p class="mb-4 text-base text-gray-700 md:text-lg">
-                        Call it magical realism, call it realistic fantasy—call it whatever you want, but Arimah's playfully subversive style is wholly her own.
-                    </p>
-                    <div class="flex items-center">
-                        <a href="/" aria-label="Author" class="mr-3">
-                            <img alt="avatar" src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260" class="object-cover w-10 h-10 rounded-full shadow-sm" />
-                        </a>
-                        <div>
-                            <a href="/" aria-label="Author" class="font-semibold text-gray-800 transition-colors duration-200 hover:text-deep-purple-accent-400">Petru Vîrtos</a>
-                            <p class="text-sm font-medium leading-4 text-gray-600">Author</p>
+        <section class="text-gray-600 body-font overflow-hidden">
+            <div class="container px-5 py-24 mx-auto">
+                <div class="-my-8 divide-y-2 divide-gray-100">
+                    <div class="py-8 flex flex-wrap md:flex-nowrap">
+                        <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
+                            <span class="font-semibold title-font text-gray-700">CATEGORY</span>
+                            <span class="mt-1 text-gray-500 text-sm">12 Jun 2019</span>
+                        </div>
+                        <div class="md:flex-grow">
+                            <h2 class="text-2xl font-medium text-gray-900 title-font mb-2">Bitters hashtag waistcoat fashion axe chia unicorn</h2>
+                            <p class="leading-relaxed">Glossier echo park pug, church-key sartorial biodiesel vexillologist pop-up snackwave ramps cornhole. Marfa 3 wolf moon party messenger bag selfies, poke vaporware kombucha lumbersexual pork belly polaroid hoodie portland craft beer.</p>
+                            <a class="text-indigo-500 inline-flex items-center mt-4">Learn More
+                                <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 12h14"></path>
+                                    <path d="M12 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
                         </div>
                     </div>
-                </div>
-                <div class="flex flex-col space-y-8 lg:col-span-3">
-                    <div>
-                        <p class="mb-2 text-xs font-semibold tracking-wide text-gray-600 uppercase">
-                            14 Jul 2020
-                        </p>
-                        <div class="mb-3">
-                            <a href="/" aria-label="Article" class="inline-block text-black transition-colors duration-200 hover:text-deep-purple-accent-400">
-                                <p class="font-sans text-xl font-extrabold leading-none tracking-tight lg:text-2xl">
-                                    Mascarpone cheese triangles taleggio
-                                </p>
-                            </a>
+                    <div class="py-8 flex flex-wrap md:flex-nowrap">
+                        <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
+                            <span class="font-semibold title-font text-gray-700">CATEGORY</span>
+                            <span class="mt-1 text-gray-500 text-sm">12 Jun 2019</span>
                         </div>
-                        <p class="mb-4 text-base text-gray-700 md:text-lg">
-                            Brie cheese triangles cheesecake. Cauliflower cheese cheese and wine manchego bocconcini croque monsieur queso airedale brie.
-                        </p>
-                        <div class="flex items-center">
-                            <a href="/" aria-label="Author" class="mr-3">
-                                <img alt="avatar" src="https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260" class="object-cover w-10 h-10 rounded-full shadow-sm" />
+                        <div class="md:flex-grow">
+                            <h2 class="text-2xl font-medium text-gray-900 title-font mb-2">Meditation bushwick direct trade taxidermy shaman</h2>
+                            <p class="leading-relaxed">Glossier echo park pug, church-key sartorial biodiesel vexillologist pop-up snackwave ramps cornhole. Marfa 3 wolf moon party messenger bag selfies, poke vaporware kombucha lumbersexual pork belly polaroid hoodie portland craft beer.</p>
+                            <a class="text-indigo-500 inline-flex items-center mt-4">Learn More
+                                <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 12h14"></path>
+                                    <path d="M12 5l7 7-7 7"></path>
+                                </svg>
                             </a>
-                            <div>
-                                <a href="/" aria-label="Author" class="font-semibold text-gray-800 transition-colors duration-200 hover:text-deep-purple-accent-400">Alex Stratulat</a>
-                                <p class="text-sm font-medium leading-4 text-gray-600">Author</p>
-                            </div>
                         </div>
                     </div>
-                    <div>
-                        <p class="mb-2 text-xs font-semibold tracking-wide text-gray-600 uppercase">
-                            18 Mar 2020
-                        </p>
-                        <div class="mb-3">
-                            <a href="/" aria-label="Article" class="inline-block text-black transition-colors duration-200 hover:text-deep-purple-accent-400">
-                                <p class="font-sans text-xl font-extrabold leading-none tracking-tight lg:text-2xl">
-                                    The quick, brown fox jumps over a lazy dog
-                                </p>
-                            </a>
+                    <div class="py-8 flex flex-wrap md:flex-nowrap">
+                        <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
+                            <span class="font-semibold title-font text-gray-700">CATEGORY</span>
+                            <span class="text-sm text-gray-500">12 Jun 2019</span>
                         </div>
-                        <p class="mb-4 text-base text-gray-700 md:text-lg">
-                            "A kitten, a nice little, sleek playful kitten, that I can play with, and teach, and feed--and feed--and feed!" I was not unprepared for this request, for I had noticed how his pets went on increasing in size.
-                        </p>
-                        <div class="flex items-center">
-                            <a href="/" aria-label="Author" class="mr-3">
-                                <img alt="avatar" src="https://images.pexels.com/photos/104827/cat-pet-animal-domestic-104827.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=3&amp;h=750&amp;w=1260" class="object-cover w-10 h-10 rounded-full shadow-sm" />
+                        <div class="md:flex-grow">
+                            <h2 class="text-2xl font-medium text-gray-900 title-font mb-2">Woke master cleanse drinking vinegar salvia</h2>
+                            <p class="leading-relaxed">Glossier echo park pug, church-key sartorial biodiesel vexillologist pop-up snackwave ramps cornhole. Marfa 3 wolf moon party messenger bag selfies, poke vaporware kombucha lumbersexual pork belly polaroid hoodie portland craft beer.</p>
+                            <a class="text-indigo-500 inline-flex items-center mt-4">Learn More
+                                <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 12h14"></path>
+                                    <path d="M12 5l7 7-7 7"></path>
+                                </svg>
                             </a>
-                            <div>
-                                <a href="/" aria-label="Author" class="font-semibold text-gray-800 transition-colors duration-200 hover:text-deep-purple-accent-400">Susie the Cat</a>
-                                <p class="text-sm font-medium leading-4 text-gray-600">Author</p>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
+
     </Layout>
 </template>
