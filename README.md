@@ -56,3 +56,4 @@ docker restart app
 </details>
 
 npm run dev -- --host
+docker exec -it app php artisan octane:start --host=test.local
